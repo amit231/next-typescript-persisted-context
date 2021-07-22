@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import { authStore } from "../global-contexts/auth-state";
 import { setAuthorizationToken } from "../api-config/axios";
 import Background from "../components/Home";
+import { authStore } from "../global-contexts/auth-state";
 
 const USER = { session_token: "test-session", user_id: 23 };
 
 export default function App() {
   const authState = useContext(authStore);
-  let auth = authState.state.session_token ? true : false;
+  const auth = authState.state.session_token ? true : false;
   const login = (context, user) => {
     const { dispatch } = context;
     setAuthorizationToken(USER);
@@ -23,16 +23,16 @@ export default function App() {
     <Background loggedin={auth}>
       <div
         style={{
-          width: "50vw",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
           alignItems: "center",
-          height: "20vh",
           backgroundColor: "pink",
           color: "red",
+          display: "flex",
+          flexDirection: "row",
           fontSize: "3rem",
+          height: "20vh",
+          justifyContent: "center",
           margin: "0 auto",
+          width: "50vw",
         }}
       >
         {auth
@@ -41,16 +41,16 @@ export default function App() {
       </div>
       <button
         style={{
-          width: "10vw",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
           alignItems: "center",
-          height: "5vh",
           backgroundColor: "yellow",
           color: "red",
+          display: "flex",
+          flexDirection: "row",
           fontSize: "3rem",
+          height: "5vh",
+          justifyContent: "center",
           margin: "0 auto",
+          width: "10vw",
         }}
         type="button"
         onClick={() => {
